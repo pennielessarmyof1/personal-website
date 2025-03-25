@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Threads of Intention: A Guide to Living</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+    <h1>Threads of Intention: A Guide to Living</h1>
+    <nav id="navbar"></nav>
+    <script>
+    fetch("navbar.html")
+        .then(response => response.text())
+        .then(data => document.getElementById("navbar").innerHTML =data)
+        .catch(error => console.error("Error fetching navbar:", error));
+    </script>
+    </header>
+</body>
