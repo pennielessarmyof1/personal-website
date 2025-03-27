@@ -6,15 +6,33 @@
     <title>Threads of Intention: A Guide to Living</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <header>
-    <h1>Threads of Intention: A Guide to Living</h1>
-    <nav id="navbar"></nav>
-    <script>
-    fetch("navbar.html")
+        <h1>Threads of Intention: A Guide to Living</h1>
+        <nav id="navbar"></nav>
+
+        <script> <!--Standard script for loading nav bar-->
+        fetch("navbar.html")
         .then(response => response.text())
         .then(data => document.getElementById("navbar").innerHTML =data)
         .catch(error => console.error("Error fetching navbar:", error));
-    </script>
+        </script>
     </header>
+
+    <ul id="post-list"></ul>
+
+    <script> <!--This script fetches a list of post titles from the posts.json file-->
+        fetch("posts.json")
+        .then(response => response.json())
+        .then(posts =>
+            {const postList = document.getElementById ("post-list");
+            posts.forEach(post =>
+                {const li = document.createElement("li");
+                li.innerHTML = `<a href = "post.HTML?id = ${post.id}" > ${post.title} </a>`;
+                postList.appendChild(li);
+                });
+            });
+    </script>
+
 </body>
