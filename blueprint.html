@@ -23,16 +23,17 @@
     <ul id="post-list"></ul>
 
     <script> <!--This script fetches a list of post titles from the posts.json file-->
-        fetch("posts.json")
+        fetch("essays.json")
         .then(response => response.json())
         .then(posts =>
             {const postList = document.getElementById ("post-list");
-            posts.forEach(post =>
+            posts.forEach(essay =>
                 {const li = document.createElement("li");
-                li.innerHTML = `<a href = "post.HTML?id = ${post.id}" > ${post.title} </a>`;
+                li.innerHTML = `<a href = "essay.HTML?id = ${essay.id}" > ${essay.title} </a>`;
                 postList.appendChild(li);
                 });
             });
     </script>
+
 
 </body>
