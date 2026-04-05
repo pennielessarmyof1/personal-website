@@ -20,20 +20,21 @@
         </script>
     </header>
 
-    <ul id="post-list"></ul>
+<ul id="essay-Titles"></ul>
+<!-- Modal Popup -->
+<div id="essay-Modal" class="modal">
+    <div class="modal-content">
+        <span id="closeModal">&times;</span>
+        <h2 id="title"></h2>
+        <p id="content"></p>
+    </div>
+</div>
 
-    <script> <!--This script fetches a list of post titles from the posts.json file-->
-        fetch("essays.json")
-        .then(response => response.json())
-        .then(posts =>
-            {const postList = document.getElementById ("post-list");
-            posts.forEach(essay =>
-                {const li = document.createElement("li");
-                li.innerHTML = `<a href = "essay.HTML?id = ${essay.id}" > ${essay.title} </a>`;
-                postList.appendChild(li);
-                });
-            });
-    </script>
+<script type="module">
+    import { loadEssay } from "./essayList.js";
 
+    // call the function to load the list dynamically
+    loadEssay();
+</script>
 
 </body>
